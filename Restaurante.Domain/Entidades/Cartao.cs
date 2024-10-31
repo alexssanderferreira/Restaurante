@@ -7,7 +7,7 @@ public class Cartao : Base
     public Cliente Cliente { get; private set; }
     public int Numero { get; private set; }
     public List<Pedido> Pedidos { get; private set; }
-    public double Total { get => Pedidos.Sum(x => x.Total); }
+    public double Total => Pedidos.Sum(x => x.Total);
     public bool Pago { get; private set; }
     public StatusCartao Status { get; private set; }
     public DateTime DataHoraPagamento { get; private set; }
@@ -18,6 +18,7 @@ public class Cartao : Base
     {
         Numero = numero;
         Status = StatusCartao.Inativo;
+        Pedidos = new List<Pedido>();
     }
 
     public void AssociarCliente(Cliente cliente)
@@ -29,20 +30,14 @@ public class Cartao : Base
         if (_erros.Any())
             throw new Exception(string.Join(",", _erros));
 
-
         Cliente = cliente;
         Status = StatusCartao.Ativo;
     }
 
-    public List<Pedido> GetPedidos()
-    {
-        return Pedidos;
-    }
-
-    public void AdicionarPedido(Pedido pedido, List<Pedido> pedidos)
+    public void AdicionarPedido(Pedido pedido)
     {
         ValidarAdicionarPedido(pedido);
-        pedidos.Add(pedido);
+        Pedidos.Add(pedido);
     }
 
     private void ValidarAdicionarPedido(Pedido pedido)
@@ -75,16 +70,16 @@ public class Cartao : Base
         Status = StatusCartao.Ativo;
     }
 
-    public string VerificarSaida()
+    public string RegistrarSaida()
     {
         ValidarSaida();
         Status = StatusCartao.Inativo;
         Cliente = null;
-        Pedidos = null;
+        Pedidos.Clear();
         return $"Saída Liberada, Cartão {Numero} foi desvinculado do usuário {Cliente?.Nome}";
     }
 
-    public void ValidarSaida()
+    private void ValidarSaida()
     {
         if (Status == StatusCartao.Inativo)
             _erros.Add("Cartão está inativo");

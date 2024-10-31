@@ -13,6 +13,7 @@ public static class RegistraServicoAplicacao
 
         services.AddScoped<ICategoriaService, CategoriaService>();
         services.AddScoped<IItemDoMenuService, ItemDoMenuService>();
+
         services.AddAutoMapper(Assembly.GetExecutingAssembly());
         return services;
     }

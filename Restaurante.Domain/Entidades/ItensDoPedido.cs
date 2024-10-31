@@ -1,6 +1,4 @@
-﻿using Restaurante.Domain.ObjetosDeValor;
-
-namespace Restaurante.Domain.Entidades;
+﻿namespace Restaurante.Domain.Entidades;
 
 public class ItensDoPedido : Base
 {

@@ -8,7 +8,8 @@ public class Pedido : Base
     public List<ItensDoPedido> ItensDoPedido { get; set; }
     public DateTime Data { get; set; }
     public StatusPedido Status { get; set; }
-    public double Total { get; set; }
+    public double Total { get; private set; }
+
     private readonly IList<string> _erros = new List<string>();
 
     protected Pedido() { }
@@ -24,23 +25,27 @@ public class Pedido : Base
         ItensDoPedido = itens;
         Data = DateTime.UtcNow;
         Status = StatusPedido.Aguardando;
-        Total = itens.Sum(x => x.Total);
+        RecalcularTotal();
     }
+
     public void AlterarStatus(StatusPedido status)
     {
         ValidarAlteracaoStatus(status);
         Status = status;
     }
+
     public void AdicionarItem(ItensDoPedido item)
     {
         ValidarMudançaItens(item);
         ItensDoPedido.Add(item);
+        RecalcularTotal();
     }
 
     public void RemoverItem(ItensDoPedido item)
     {
         ValidarMudançaItens(item);
         ItensDoPedido.Remove(item);
+        RecalcularTotal();
     }
 
     public void CancelarPedido()
@@ -48,7 +53,6 @@ public class Pedido : Base
         ValidarCancelamento();
         Status = StatusPedido.Cancelado;
     }
-
 
     private static void ValidarPedido(Cartao cartao, List<ItensDoPedido> itens)
     {
@@ -90,4 +94,8 @@ public class Pedido : Base
             throw new Exception(string.Join(",", _erros));
     }
 
+    private void RecalcularTotal()
+    {
+        Total = ItensDoPedido.Sum(x => x.Total);
+    }
 }
