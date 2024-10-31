@@ -8,6 +8,7 @@ public class Funcionario : Usuario
     public Email Email { get; private set; }
     public string Login { get; private set; }
     public string Senha { get; private set; }
+
     private readonly IList<string> _erros = new List<string>();
 
     protected Funcionario()

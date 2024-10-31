@@ -2984,11 +2984,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Alexssander\\Desktop\\Restaurante\\Restaurante.Application\\Restaurante.Application.csproj",
+      "projectUniqueName": "C:\\Users\\Alexssander\\Desktop\\Projeto\\Restaurante\\Restaurante.Application\\Restaurante.Application.csproj",
       "projectName": "Restaurante.Application",
-      "projectPath": "C:\\Users\\Alexssander\\Desktop\\Restaurante\\Restaurante.Application\\Restaurante.Application.csproj",
+      "projectPath": "C:\\Users\\Alexssander\\Desktop\\Projeto\\Restaurante\\Restaurante.Application\\Restaurante.Application.csproj",
       "packagesPath": "C:\\Users\\Alexssander\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Alexssander\\Desktop\\Restaurante\\Restaurante.Application\\obj\\",
+      "outputPath": "C:\\Users\\Alexssander\\Desktop\\Projeto\\Restaurante\\Restaurante.Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3010,11 +3010,11 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\Alexssander\\Desktop\\Restaurante\\Restaurante.Domain\\Restaurante.Domain.csproj": {
-              "projectPath": "C:\\Users\\Alexssander\\Desktop\\Restaurante\\Restaurante.Domain\\Restaurante.Domain.csproj"
+            "C:\\Users\\Alexssander\\Desktop\\Projeto\\Restaurante\\Restaurante.Domain\\Restaurante.Domain.csproj": {
+              "projectPath": "C:\\Users\\Alexssander\\Desktop\\Projeto\\Restaurante\\Restaurante.Domain\\Restaurante.Domain.csproj"
             },
-            "C:\\Users\\Alexssander\\Desktop\\Restaurante\\Restaurante.Infrastructure\\Restaurante.Infrastructure.csproj": {
-              "projectPath": "C:\\Users\\Alexssander\\Desktop\\Restaurante\\Restaurante.Infrastructure\\Restaurante.Infrastructure.csproj"
+            "C:\\Users\\Alexssander\\Desktop\\Projeto\\Restaurante\\Restaurante.Infrastructure\\Restaurante.Infrastructure.csproj": {
+              "projectPath": "C:\\Users\\Alexssander\\Desktop\\Projeto\\Restaurante\\Restaurante.Infrastructure\\Restaurante.Infrastructure.csproj"
             }
           }
         }
@@ -3071,7 +3071,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

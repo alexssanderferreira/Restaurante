@@ -1,24 +1,21 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Restaurante.Application.Contratos;
 using Restaurante.Application.Dtos;
-using Restaurante.Domain.Entidades;
 
 namespace Restaurante.API.Controllers;
 
 [Route("[controller]")]
 [ApiController]
-public class BaseControllerExtensao<TEntity, TDto, TReturnDto, TService> : ControllerBase
-    where TEntity : Base
+public class BaseControllerExtensao< TDto, TReturnDto, TService> : ControllerBase
     where TDto : class
     where TReturnDto : BaseDto
-    where TService : IServiceBase<TDto, TReturnDto>
+    where TService : IServiceBaseExtensao<TDto, TReturnDto>
 {
-    protected TService Service;
+    protected readonly TService _service;
 
-    public BaseControllerExtensao(TService appService)
+    public BaseControllerExtensao(TService service)
     {
-        Service = appService;
+        _service = service;
     }
 
     [HttpPost]
@@ -26,7 +23,7 @@ public class BaseControllerExtensao<TEntity, TDto, TReturnDto, TService> : Contr
     {
         try
         {
-            await Service.AdicionarAsync(dto);
+            await _service.AdicionarAsync(dto);
             return Ok();
         }
         catch (Exception ex)
@@ -38,13 +35,13 @@ public class BaseControllerExtensao<TEntity, TDto, TReturnDto, TService> : Contr
     [HttpGet]
     public virtual async Task<IActionResult> ObterTodosAsync()
     {
-        return Ok(await Service.ObterTodosAsync());
+        return Ok(await _service.ObterTodosAsync());
     }
 
     [HttpGet("{id}")]
     public virtual async Task<IActionResult> ObterPorIdAsync(Guid id)
     {
-        return Ok(await Service.ObterPorIdAsync(id));
+        return Ok(await _service.ObterPorIdAsync(id));
     }
 
     [HttpDelete]
@@ -52,7 +49,7 @@ public class BaseControllerExtensao<TEntity, TDto, TReturnDto, TService> : Contr
     {
         try
         {
-            await Service.DeletarAsync(id);
+            await _service.DeletarAsync(id);
             return NoContent();
         }
         catch (Exception ex)

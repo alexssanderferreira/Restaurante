@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
-using Restaurante.Application;
+using Restaurante.Application.Servicos;
 using Restaurante.Infrastructure;
 using Serilog;
 using System.Reflection;
