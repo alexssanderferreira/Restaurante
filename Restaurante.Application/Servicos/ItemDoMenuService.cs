@@ -7,14 +7,10 @@ using Restaurante.Infrastructure.Contratos;
 namespace Restaurante.Application.Servicos;
 public class ItemDoMenuService : ServiceBase<ItemDoMenuDto, ItemDoMenuReturnDto, ItemDoMenu, IItemDoMenuRepository>, IItemDoMenuService
 {
-    private readonly IItemDoMenuRepository _itemDoMenuRepository;
-    private readonly IMapper _mapper;
     private readonly ICategoriaRepository _categoriaRepository;
 
-    public ItemDoMenuService(IItemDoMenuRepository itemDoMenuRepository, IMapper mapper, ICategoriaRepository categoriaRepository) : base(itemDoMenuRepository, mapper)
+    public ItemDoMenuService(IItemDoMenuRepository repostory, IMapper mapper, ICategoriaRepository categoriaRepository) : base(repostory, mapper)
     {
-        _itemDoMenuRepository = itemDoMenuRepository;
-        _mapper = mapper;
         _categoriaRepository = categoriaRepository;
     }
 
@@ -32,7 +28,7 @@ public class ItemDoMenuService : ServiceBase<ItemDoMenuDto, ItemDoMenuReturnDto,
 
     protected async Task<ItemDoMenu> DefinirEntidadeAlteracao(ItemDoMenu entidade, ItemDoMenuDto dto, Guid id)
     {
-        var itemDoMenu = await _itemDoMenuRepository.ObterPorIdAsync(id);
+        var itemDoMenu = await _repository.ObterPorIdAsync(id);
 
         if (itemDoMenu == null)
             throw new Exception("Item do menu não encontrado");
@@ -44,7 +40,7 @@ public class ItemDoMenuService : ServiceBase<ItemDoMenuDto, ItemDoMenuReturnDto,
 
     public async Task AlterarCategoria(Guid idItemDoMenu, Guid idCategoria)
     {
-        var itemDoMenu = await _itemDoMenuRepository.ObterPorIdAsync(idItemDoMenu);
+        var itemDoMenu = await _repository.ObterPorIdAsync(idItemDoMenu);
         var categoria = await _categoriaRepository.ObterPorIdAsync(idCategoria);
 
         if (itemDoMenu == null)
@@ -55,7 +51,7 @@ public class ItemDoMenuService : ServiceBase<ItemDoMenuDto, ItemDoMenuReturnDto,
             throw new Exception(string.Join(",", _erros));
 
         itemDoMenu.AlterarItemDoMenu(itemDoMenu.Nome, itemDoMenu.Descricao, itemDoMenu.Preco, itemDoMenu.Imagem, categoria);
-        await _itemDoMenuRepository.AlterarAsync(itemDoMenu);
+        await _repository.AlterarAsync(itemDoMenu);
     }
 }
 

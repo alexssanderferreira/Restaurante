@@ -12,15 +12,8 @@ public class ServiceBase<TDto, TReturnDto, TEntity, TRepository> : ServiceBaseEx
     where TEntity : Base
     where TRepository : IRepositoryBase<TEntity>
 {
-    protected TRepository _repository;
-    protected readonly IMapper _mapper;
-    protected List<string> _erros;
-
     public ServiceBase(TRepository repository, IMapper mapper) : base(repository, mapper)
     {
-        _repository = repository;
-        _mapper = mapper;
-        _erros = new();
     }
 
     public virtual async Task AlterarAsync(TDto dto, Guid id)

@@ -12,7 +12,7 @@ public class ItemDoMenu : Base
     public string Descricao { get; private set; }
     public double Preco { get; private set; }
     public string Imagem { get; private set; }
-    public Categoria Categoria { get; set; }
+    public Categoria Categoria { get; private set; }
 
     private readonly IList<string> _erros = new List<string>();
 

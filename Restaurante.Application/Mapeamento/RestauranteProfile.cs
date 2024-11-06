@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Restaurante.Application.Dtos.Categoria;
 using Restaurante.Application.Dtos.ItemDoMenu;
+using Restaurante.Application.Dtos.Pedido;
 using Restaurante.Domain.Entidades;
 using Restaurante.Domain.ObjetosDeValor;
 
@@ -12,6 +13,6 @@ public class RestauranteProfile : Profile
     {
         CreateMap<Categoria, CategoriaReturnDto>();
         CreateMap<ItemDoMenu, ItemDoMenuReturnDto>();
-
+        CreateMap<Pedido, PedidoReturnDto>();
     }
 }

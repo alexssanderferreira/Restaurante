@@ -3,9 +3,9 @@ using Restaurante.Infrastructure.Contratos;
 using Restaurante.Infrastructure.Persistencia;
 
 namespace Restaurante.Infrastructure.Repositorio;
-public class ItemDoMenuRepository : RepositoryBase<ItemDoMenu>, IItemDoMenuRepository
+internal class PedidoRepository : RepositoryBase<Pedido>, IPedidoRepository
 {
-    public ItemDoMenuRepository(RestauranteContext dbContext) : base(dbContext)
+    public PedidoRepository(RestauranteContext dbContext) : base(dbContext)
     {
     }
 }

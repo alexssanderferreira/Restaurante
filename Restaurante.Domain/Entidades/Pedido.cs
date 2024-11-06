@@ -4,10 +4,10 @@ namespace Restaurante.Domain.Entidades;
 
 public class Pedido : Base
 {
-    public Cartao Cartao { get; set; }
-    public List<ItensDoPedido> ItensDoPedido { get; set; }
-    public DateTime Data { get; set; }
-    public StatusPedido Status { get; set; }
+    public Cartao Cartao { get; private set; }
+    public List<ItensDoPedido> ItensDoPedido { get; private set; }
+    public DateTime Data { get; private set; }
+    public StatusPedido Status { get; private set; }
     public double Total { get; private set; }
 
     private readonly IList<string> _erros = new List<string>();

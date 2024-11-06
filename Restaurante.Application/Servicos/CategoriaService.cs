@@ -8,13 +8,8 @@ namespace Restaurante.Application.Servicos;
 
 public class CategoriaService : ServiceBaseExtensao<CategoriaDto, CategoriaReturnDto, Categoria, ICategoriaRepository>, ICategoriaService
 {
-    private readonly ICategoriaRepository _categoriaRepository;
-    private readonly IMapper _mapper;
-
-    public CategoriaService(ICategoriaRepository categoriaRepository, IMapper mapper) : base(categoriaRepository, mapper)
+    public CategoriaService(ICategoriaRepository repository, IMapper mapper) : base(repository, mapper)
     {
-        _categoriaRepository = categoriaRepository;
-        _mapper = mapper;
     }
 
     protected async override Task<Categoria> DefinirEntidadeInclusao(CategoriaDto dto)

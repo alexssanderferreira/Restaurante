@@ -17,6 +17,8 @@ namespace Restaurante.Infrastructure
             services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<IItemDoMenuRepository, ItemDoMenuRepository>();
+            services.AddScoped<IPedidoRepository, PedidoRepository>();
+            services.AddScoped<ICartaoRepository, CartaoRepository>();
 
 
             return services;

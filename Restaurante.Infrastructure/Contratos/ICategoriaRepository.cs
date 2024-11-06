@@ -2,6 +2,6 @@
 
 namespace Restaurante.Infrastructure.Contratos;
 
-public interface ICategoriaRepository: IRepositoryBase<Categoria>
+public interface ICategoriaRepository : IRepositoryBase<Categoria>
 {
 }

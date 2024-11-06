@@ -14,12 +14,11 @@ public class ServiceBaseExtensao<TDto, TReturnDto, TEntity, TRepository> : IServ
 {
     protected TRepository _repository;
     protected readonly IMapper _mapper;
-    protected List<string> _erros;
+    protected List<string> _erros = new List<string>();
     public ServiceBaseExtensao(TRepository repository, IMapper mapper)
     {
         _repository = repository;
         _mapper = mapper;
-        _erros = new();
     }
 
     public virtual async Task AdicionarAsync(TDto dto)
