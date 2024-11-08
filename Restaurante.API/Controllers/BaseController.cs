@@ -9,7 +9,7 @@ namespace Restaurante.API.Controllers;
 public class BaseController<TDto, TReturnDto, TService> : BaseControllerExtensao<TDto, TReturnDto, TService>
     where TDto : class
     where TReturnDto : BaseDto
-    where TService : IServiceBase<TDto, TReturnDto>
+    where TService : IBaseService<TDto, TReturnDto>
 {
     protected readonly TService _service;
     public BaseController(TService service) : base(service)

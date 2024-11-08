@@ -1,7 +1,6 @@
-﻿namespace Restaurante.Application.Dtos
+﻿namespace Restaurante.Application.Dtos;
+
+public record BaseDto
 {
-    public record BaseDto
-    {
-        public Guid Id { get; set; }
-    }
+    public Guid Id { get; init; }
 }

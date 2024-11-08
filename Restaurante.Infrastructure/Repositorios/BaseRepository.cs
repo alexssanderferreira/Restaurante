@@ -5,12 +5,12 @@ using Restaurante.Infrastructure.Persistencia;
 
 namespace Restaurante.Infrastructure.Repositorio;
 
-public class RepositoryBase<TEntity> : IRepositoryBase<TEntity> where TEntity : Base
+public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : Base
 {
     protected readonly RestauranteContext _dbContext;
     protected readonly DbSet<TEntity> _dbSet;
 
-    public RepositoryBase(RestauranteContext dbContext)
+    public BaseRepository(RestauranteContext dbContext)
     {
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         _dbSet = dbContext.Set<TEntity>();

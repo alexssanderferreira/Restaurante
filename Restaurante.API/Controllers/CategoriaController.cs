@@ -6,7 +6,7 @@ namespace Restaurante.API.Controllers;
 
 [Route("[controller]")]
 [ApiController]
-public class CategoriaController : BaseControllerExtensao<CategoriaDto, CategoriaReturnDto, ICategoriaService>
+public class CategoriaController : BaseControllerExtensao<CategoriaDto, RetornoCategoriaDto, ICategoriaService>
 {
     private readonly ICategoriaService _categoriaService;
 

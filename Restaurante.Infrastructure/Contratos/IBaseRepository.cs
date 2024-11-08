@@ -2,7 +2,7 @@
 
 namespace Restaurante.Infrastructure.Contratos;
 
-public interface IRepositoryBase<TEntity> where TEntity : Base
+public interface IBaseRepository<TEntity> where TEntity : Base
 {
     Task<IReadOnlyList<TEntity>> ObterTodosAsync();
     Task<TEntity> ObterPorIdAsync(Guid id);

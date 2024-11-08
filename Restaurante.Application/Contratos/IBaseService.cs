@@ -2,7 +2,7 @@
 
 namespace Restaurante.Application.Contratos;
 
-public interface IServiceBase<TDto, TReturnDto> : IServiceBaseExtensao<TDto, TReturnDto>
+public interface IBaseService<TDto, TReturnDto> : IBaseServiceExtensao<TDto, TReturnDto>
         where TDto : class
         where TReturnDto : BaseDto
 {

@@ -1,13 +1,11 @@
 ﻿using Restaurante.Application.Dtos;
 
 namespace Restaurante.Application.Contratos;
-
-public interface IServiceBaseExtensao<TDto, TReturnDto>
+public interface IUsuarioService<TDto, TReturnDto>
         where TDto : class
         where TReturnDto : BaseDto
 {
-    Task<IReadOnlyList<TReturnDto>> ObterTodosAsync();
-    Task<TReturnDto> ObterPorIdAsync(Guid id);
     Task AdicionarAsync(TDto dto);
+    Task<TReturnDto> ObterPorIdAsync(Guid id);
     Task DeletarAsync(Guid id);
 }

@@ -6,7 +6,7 @@ using Restaurante.Infrastructure.Contratos;
 
 namespace Restaurante.Application.Servicos;
 
-public class CategoriaService : ServiceBaseExtensao<CategoriaDto, CategoriaReturnDto, Categoria, ICategoriaRepository>, ICategoriaService
+public class CategoriaService : ServiceBaseExtensao<CategoriaDto, RetornoCategoriaDto, Categoria, ICategoriaRepository>, ICategoriaService
 {
     public CategoriaService(ICategoriaRepository repository, IMapper mapper) : base(repository, mapper)
     {

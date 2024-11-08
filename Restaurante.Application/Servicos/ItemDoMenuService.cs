@@ -5,7 +5,7 @@ using Restaurante.Domain.Entidades;
 using Restaurante.Infrastructure.Contratos;
 
 namespace Restaurante.Application.Servicos;
-public class ItemDoMenuService : ServiceBase<ItemDoMenuDto, ItemDoMenuReturnDto, ItemDoMenu, IItemDoMenuRepository>, IItemDoMenuService
+public class ItemDoMenuService : ServiceBase<CriarItemDoMenuDto, RetornoItemDoMenuDto, ItemDoMenu, IItemDoMenuRepository>, IItemDoMenuService
 {
     private readonly ICategoriaRepository _categoriaRepository;
 
@@ -14,7 +14,7 @@ public class ItemDoMenuService : ServiceBase<ItemDoMenuDto, ItemDoMenuReturnDto,
         _categoriaRepository = categoriaRepository;
     }
 
-    protected async override Task<ItemDoMenu> DefinirEntidadeInclusao(ItemDoMenuDto dto)
+    protected async override Task<ItemDoMenu> DefinirEntidadeInclusao(CriarItemDoMenuDto dto)
     {
         var categoria = await _categoriaRepository.ObterPorIdAsync(dto.CategoriaId);
 
@@ -26,7 +26,7 @@ public class ItemDoMenuService : ServiceBase<ItemDoMenuDto, ItemDoMenuReturnDto,
         return itemDoMenu;
     }
 
-    protected async Task<ItemDoMenu> DefinirEntidadeAlteracao(ItemDoMenu entidade, ItemDoMenuDto dto, Guid id)
+    protected async Task<ItemDoMenu> DefinirEntidadeAlteracao(ItemDoMenu entidade, CriarItemDoMenuDto dto, Guid id)
     {
         var itemDoMenu = await _repository.ObterPorIdAsync(id);
 

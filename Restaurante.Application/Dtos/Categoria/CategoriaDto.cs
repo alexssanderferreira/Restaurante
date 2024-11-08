@@ -1,7 +1,4 @@
 ﻿namespace Restaurante.Application.Dtos.Categoria;
 
-public record CategoriaDto
-{
-    public string Nome { get; set; }
-    public string Descricao { get; set; }
-}
+public record CategoriaDto(string Nome, string Descricao);
+public record RetornoCategoriaDto(string Nome, string Descricao) : BaseDto;

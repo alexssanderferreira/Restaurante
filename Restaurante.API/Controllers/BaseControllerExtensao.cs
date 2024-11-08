@@ -9,7 +9,7 @@ namespace Restaurante.API.Controllers;
 public class BaseControllerExtensao< TDto, TReturnDto, TService> : ControllerBase
     where TDto : class
     where TReturnDto : BaseDto
-    where TService : IServiceBaseExtensao<TDto, TReturnDto>
+    where TService : IBaseServiceExtensao<TDto, TReturnDto>
 {
     protected readonly TService _service;
 
@@ -41,7 +41,10 @@ public class BaseControllerExtensao< TDto, TReturnDto, TService> : ControllerBas
     [HttpGet("{id}")]
     public virtual async Task<IActionResult> ObterPorIdAsync(Guid id)
     {
-        return Ok(await _service.ObterPorIdAsync(id));
+        var entidade = await _service.ObterPorIdAsync(id);
+        if (entidade == null)
+            return NotFound();
+        return Ok(entidade);
     }
 
     [HttpDelete]

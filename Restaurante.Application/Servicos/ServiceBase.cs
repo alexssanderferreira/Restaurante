@@ -6,11 +6,11 @@ using Restaurante.Infrastructure.Contratos;
 
 namespace Restaurante.Application.Servicos;
 
-public class ServiceBase<TDto, TReturnDto, TEntity, TRepository> : ServiceBaseExtensao<TDto, TReturnDto, TEntity, TRepository>, IServiceBase<TDto, TReturnDto>
+public class ServiceBase<TDto, TReturnDto, TEntity, TRepository> : ServiceBaseExtensao<TDto, TReturnDto, TEntity, TRepository>, IBaseService<TDto, TReturnDto>
     where TDto : class
     where TReturnDto : BaseDto
     where TEntity : Base
-    where TRepository : IRepositoryBase<TEntity>
+    where TRepository : IBaseRepository<TEntity>
 {
     public ServiceBase(TRepository repository, IMapper mapper) : base(repository, mapper)
     {

@@ -4,7 +4,7 @@ using Restaurante.Infrastructure.Persistencia;
 
 namespace Restaurante.Infrastructure.Repositorio;
 
-public class CategoriaRepository : RepositoryBase<Categoria>, ICategoriaRepository
+public class CategoriaRepository : BaseRepository<Categoria>, ICategoriaRepository
 {
     public CategoriaRepository(RestauranteContext dbContext) : base(dbContext)
     {

@@ -14,7 +14,7 @@ namespace Restaurante.Infrastructure
             services.AddDbContext<RestauranteContext>(options =>
                 options.UseSqlServer(configuration.GetConnectionString("ConnectionString")));
 
-            services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
+            services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
             services.AddScoped<IItemDoMenuRepository, ItemDoMenuRepository>();
             services.AddScoped<IPedidoRepository, PedidoRepository>();

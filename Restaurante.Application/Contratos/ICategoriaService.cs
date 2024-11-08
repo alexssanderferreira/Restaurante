@@ -2,6 +2,6 @@
 
 namespace Restaurante.Application.Contratos;
 
-public interface ICategoriaService : IServiceBaseExtensao<CategoriaDto, CategoriaReturnDto>
+public interface ICategoriaService : IBaseServiceExtensao<CategoriaDto, RetornoCategoriaDto>
 {
 }

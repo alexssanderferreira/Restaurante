@@ -2,6 +2,6 @@
 
 namespace Restaurante.Infrastructure.Contratos;
 
-public interface IFuncionarioRepository : IRepositoryBase<Funcionario>
+public interface IFuncionarioRepository : IBaseRepository<Funcionario>
 {
 }

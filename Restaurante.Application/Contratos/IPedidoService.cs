@@ -1,11 +1,10 @@
 ﻿using Restaurante.Application.Dtos.ItensDoPedido;
 using Restaurante.Application.Dtos.Pedido;
-using Restaurante.Domain.Enuns;
 
 namespace Restaurante.Application.Contratos;
-public interface IPedidoService : IServiceBase<PedidoDto, PedidoReturnDto>
+public interface IPedidoService : IBaseService<CriarPedidoDto, RetornoPedidoDto>
 {
-    Task AdicionarItemAsync(Guid id, ItensDoPedidoDto item);
-    Task RemoverItemAsync(Guid id, ItensDoPedidoDto item);
+    Task AdicionarItensAsync(Guid id, List<CriarItensDoPedidoDto> itensDto);
+    Task RemoverItensAsync(Guid id, List<ItensDoPedidoDto> itensDto);
     Task CancelarPedidoAsync(Guid id);
 }

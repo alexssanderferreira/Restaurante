@@ -6,7 +6,7 @@ namespace Restaurante.API.Controllers;
 
 [Route("[controller]")]
 [ApiController]
-public class ItemDoMenuController : BaseController<ItemDoMenuDto, ItemDoMenuReturnDto, IItemDoMenuService>
+public class ItemDoMenuController : BaseController<CriarItemDoMenuDto, RetornoItemDoMenuDto, IItemDoMenuService>
 {
     private readonly IItemDoMenuService _itemDoMenuService;
 

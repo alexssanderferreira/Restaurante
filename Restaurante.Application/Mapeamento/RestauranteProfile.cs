@@ -11,8 +11,8 @@ public class RestauranteProfile : Profile
 {
     public RestauranteProfile()
     {
-        CreateMap<Categoria, CategoriaReturnDto>();
-        CreateMap<ItemDoMenu, ItemDoMenuReturnDto>();
-        CreateMap<Pedido, PedidoReturnDto>();
+        CreateMap<Categoria, RetornoCategoriaDto>();
+        CreateMap<ItemDoMenu, RetornoItemDoMenuDto>();
+        CreateMap<Pedido, CriarPedidoDto>();
     }
 }
